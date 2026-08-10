@@ -80,6 +80,9 @@ body {
     font-weight: 600;
     font-size: 0.95rem;
     transition: var(--transition);
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
 }
 
 .navbar nav ul li a:hover {
