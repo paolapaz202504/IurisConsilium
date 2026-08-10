@@ -201,29 +201,179 @@
                     <img src="src/images/elizabeth_palencia.png" alt="Dra. Irma Elizabeth Palencia Orellana" class="team-photo">
                     <h3>Dra. Irma Elizabeth Palencia Orellana</h3>
                     <p class="role">Abogada y Notaria | Doctora en Derecho del Trabajo, Previsión Social y Derechos Humanos</p>
-                    <p class="bio">Jurista guatemalteca, magistrada, académica e investigadora con más de 28 años de trayectoria en administración de justicia y derechos humanos.</p>
+                    <button class="btn-see-more" onclick="openModal('modal-elizabeth')">Ver más...</button>
                 </div>
                 <div class="team-member">
                     <img src="src/images/eleonora_castillo.jpeg" alt="Mgtr. Eleonora Noemí Castillo Pinzón" class="team-photo">
                     <h3>Mgtr. Eleonora Noemí Castillo Pinzón</h3>
                     <p class="role">Abogada y Notaria | Magíster en Derecho de las Mujeres, Género y Acceso a la Justicia</p>
-                    <p class="bio">Con más de 45 años de trayectoria al servicio de la justicia. Ex subdirectora del Registro de Ciudadanos del TSE y destacada carrera en el MP.</p>
+                    <button class="btn-see-more" onclick="openModal('modal-eleonora')">Ver más...</button>
                 </div>
                 <div class="team-member">
                     <img src="src/images/paola_cortez.png" alt="Mgrt. Katherine Paola Cortez Fuentes" class="team-photo">
                     <h3>Mgrt. Katherine Paola Cortez Fuentes</h3>
                     <p class="role">Abogada y Notaria | Magíster en Derecho Procesal Constitucional</p>
-                    <p class="bio">Sólida trayectoria en el ámbito público y asesoría jurídica especializada con enfoque en Derecho Electoral, Constitucional, Civil y Laboral.</p>
+                    <button class="btn-see-more" onclick="openModal('modal-paola')">Ver más...</button>
                 </div>
                 <div class="team-member">
                     <img src="src/images/karina_gonzalez.jpeg" alt="M.A. Karina Beatriz González Escobar" class="team-photo">
                     <h3>M.A. Karina Beatriz González Escobar</h3>
                     <p class="role">Abogada y Notaria</p>
-                    <p class="bio">Experiencia en magistratura de salas de apelación, litigio estratégico y análisis de procesos laborales, penales y amparos.</p>
+                    <button class="btn-see-more" onclick="openModal('modal-karina')">Ver más...</button>
                 </div>
             </div>
         </div>
     </section>
+
+    <!-- Modals for Team Members -->
+    <div id="modal-elizabeth" class="modal">
+        <div class="modal-content">
+            <span class="close-modal" onclick="closeModal('modal-elizabeth')">&times;</span>
+            <div class="modal-body">
+                <img src="src/images/elizabeth_palencia.png" alt="Dra. Irma Elizabeth Palencia Orellana" class="modal-img">
+                <div class="modal-text">
+                    <h2>Dra. Irma Elizabeth Palencia Orellana</h2>
+                    <p class="modal-role">Abogada y Notaria | Doctora en Derecho del Trabajo</p>
+                    
+                    <div class="bio-tags">
+                        <span class="bio-tag"><i class="fas fa-scale-balanced"></i> Magistrada</span>
+                        <span class="bio-tag"><i class="fas fa-book"></i> Académica</span>
+                        <span class="bio-tag"><i class="fas fa-award"></i> 28+ años de trayectoria</span>
+                    </div>
+
+                    <div class="bio-section">
+                        <h4><i class="fas fa-graduation-cap"></i> Formación Académica</h4>
+                        <p>Doctora en Derecho del Trabajo, Previsión Social y Derechos Humanos. Cursa el Doctorado en Derecho Procesal Constitucional, posee Maestría en Propiedad Intelectual y especialización en Gestión Pública y Gerencia Social.</p>
+                    </div>
+
+                    <div class="bio-section">
+                        <h4><i class="fas fa-briefcase"></i> Experiencia Destacada</h4>
+                        <ul class="bio-list">
+                            <li>Magistrada de la Corte de Apelaciones del Organismo Judicial.</li>
+                            <li>Magistrada del Tribunal Supremo Electoral.</li>
+                            <li>Presidente del Directorio del RENAP.</li>
+                            <li>Coordinadora Nacional del Procurador de los Derechos Humanos.</li>
+                        </ul>
+                    </div>
+
+                    <div class="bio-section">
+                        <h4><i class="fas fa-globe"></i> Aportes y Reconocimientos</h4>
+                        <p>Autora de obras sobre derechos humanos y derecho laboral. Miembro honorario de redes jurídicas regionales y mundiales. Destaca por promover la seguridad jurídica y protección de derechos fundamentales.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="modal-eleonora" class="modal">
+        <div class="modal-content">
+            <span class="close-modal" onclick="closeModal('modal-eleonora')">&times;</span>
+            <div class="modal-body">
+                <img src="src/images/eleonora_castillo.jpeg" alt="Mgtr. Eleonora Noemí Castillo Pinzón" class="modal-img">
+                <div class="modal-text">
+                    <h2>Mgtr. Eleonora Noemí Castillo Pinzón</h2>
+                    <p class="modal-role">Abogada y Notaria | Magíster en Derecho de las Mujeres, Género y Acceso a la Justicia</p>
+                    
+                    <div class="bio-tags">
+                        <span class="bio-tag"><i class="fas fa-shield-halved"></i> Derechos Humanos</span>
+                        <span class="bio-tag"><i class="fas fa-landmark"></i> Gestión Pública</span>
+                        <span class="bio-tag"><i class="fas fa-award"></i> 45+ años de trayectoria</span>
+                    </div>
+
+                    <div class="bio-section">
+                        <h4><i class="fas fa-graduation-cap"></i> Formación Académica</h4>
+                        <p>Magíster en Derecho de las Mujeres, Género y Acceso a la Justicia, con estudios especializados en derechos humanos y victimología, fortaleciendo una visión jurídica integral y humanista.</p>
+                    </div>
+
+                    <div class="bio-section">
+                        <h4><i class="fas fa-briefcase"></i> Experiencia Destacada</h4>
+                        <ul class="bio-list">
+                            <li>Subdirectora del Registro de Ciudadanos del Tribunal Supremo Electoral (2023-2025).</li>
+                            <li>Agente Fiscal y Fiscal de Distrito en el Ministerio Público (1995-2022).</li>
+                            <li>Especialista en crimen organizado y violencia contra la mujer.</li>
+                            <li>Catedrática universitaria y revisora de tesis.</li>
+                        </ul>
+                    </div>
+
+                    <div class="bio-section">
+                        <h4><i class="fas fa-star"></i> Liderazgo</h4>
+                        <p>Referente en administración de justicia y derecho penal. Caracterizada por su integridad, excelencia profesional y firme vocación de servicio a la institucionalidad democrática del país.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="modal-paola" class="modal">
+        <div class="modal-content">
+            <span class="close-modal" onclick="closeModal('modal-paola')">&times;</span>
+            <div class="modal-body">
+                <img src="src/images/paola_cortez.png" alt="Mgrt. Katherine Paola Cortez Fuentes" class="modal-img">
+                <div class="modal-text">
+                    <h2>Mgrt. Katherine Paola Cortez Fuentes</h2>
+                    <p class="modal-role">Abogada y Notaria | Magíster en Derecho Procesal Constitucional</p>
+                    
+                    <div class="bio-tags">
+                        <span class="bio-tag"><i class="fas fa-gavel"></i> Asesoría Integral</span>
+                        <span class="bio-tag"><i class="fas fa-chart-line"></i> Visión Estratégica</span>
+                        <span class="bio-tag"><i class="fas fa-users"></i> Coordinación</span>
+                    </div>
+
+                    <div class="bio-section">
+                        <h4><i class="fas fa-graduation-cap"></i> Formación Académica</h4>
+                        <p>Maestría en Derecho Procesal Constitucional, permitiéndole abordar asuntos de alta complejidad con rigor jurídico y objetividad.</p>
+                    </div>
+
+                    <div class="bio-section">
+                        <h4><i class="fas fa-briefcase"></i> Experiencia Destacada</h4>
+                        <ul class="bio-list">
+                            <li>Asesora Legal y Coordinadora de equipos institucionales.</li>
+                            <li>Especialista en Derecho Electoral, Constitucional, Civil, Laboral y Notarial.</li>
+                            <li>Representación legal y acompañamiento a empresas e instituciones.</li>
+                        </ul>
+                    </div>
+
+                    <div class="bio-section">
+                        <h4><i class="fas fa-bullseye"></i> Enfoque Profesional</h4>
+                        <p>Implementación de soluciones jurídicas con enfoque técnico y resultados efectivos. Fuerte compromiso con la seguridad jurídica, el Estado de Derecho y la excelencia en el ejercicio del litigio.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="modal-karina" class="modal">
+        <div class="modal-content">
+            <span class="close-modal" onclick="closeModal('modal-karina')">&times;</span>
+            <div class="modal-body">
+                <img src="src/images/karina_gonzalez.jpeg" alt="M.A. Karina Beatriz González Escobar" class="modal-img">
+                <div class="modal-text">
+                    <h2>M.A. Karina Beatriz González Escobar</h2>
+                    <p class="modal-role">Abogada y Notaria</p>
+                    
+                    <div class="bio-tags">
+                        <span class="bio-tag"><i class="fas fa-scale-balanced"></i> Litigio Estratégico</span>
+                        <span class="bio-tag"><i class="fas fa-file-contract"></i> Acciones de Amparo</span>
+                        <span class="bio-tag"><i class="fas fa-magnifying-glass"></i> Evaluación Probatoria</span>
+                    </div>
+
+                    <div class="bio-section">
+                        <h4><i class="fas fa-briefcase"></i> Experiencia Destacada</h4>
+                        <ul class="bio-list">
+                            <li>Experiencia en magistratura de salas de apelación.</li>
+                            <li>Análisis de procesos laborales, penales y tributario aduaneros.</li>
+                            <li>Asesora de empresas, abogados y ONG en decisiones de alto impacto.</li>
+                        </ul>
+                    </div>
+
+                    <div class="bio-section">
+                        <h4><i class="fas fa-chess-knight"></i> Especialidad</h4>
+                        <p>Amplia trayectoria en litigio estratégico y formulación de acciones de amparo, apoyando la resolución de casos complejos mediante una meticulosa estrategia procesal y probatoria.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 
     <footer id="contact">
         <div class="container footer-content">
@@ -241,5 +391,24 @@
             <p>&copy; 2026 Iuris Consilium. Todos los derechos reservados.</p>
         </div>
     </footer>
+    <script>
+        function openModal(modalId) {
+            document.getElementById(modalId).style.display = "block";
+            document.body.style.overflow = "hidden"; // Prevent scrolling behind modal
+        }
+
+        function closeModal(modalId) {
+            document.getElementById(modalId).style.display = "none";
+            document.body.style.overflow = "auto";
+        }
+
+        // Close when clicking outside of the modal content
+        window.onclick = function(event) {
+            if (event.target.classList.contains('modal')) {
+                event.target.style.display = "none";
+                document.body.style.overflow = "auto";
+            }
+        }
+    </script>
 </body>
 </html>
