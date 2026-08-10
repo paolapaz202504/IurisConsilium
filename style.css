@@ -275,19 +275,74 @@ h2 {
     font-weight: 300;
 }
 
-.services-list {
-    list-style: none;
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 1rem;
-    margin-top: 1.5rem;
+.section-divider {
+    text-align: center;
+    margin: 4rem 0 2rem;
 }
 
-.services-list li::before {
-    content: "✓";
+.section-divider h3 {
+    font-family: var(--font-heading);
+    color: var(--primary-color);
+    font-size: 2rem;
+    margin-bottom: 0.5rem;
+}
+
+.section-divider .subtitle {
+    color: #64748b;
+    font-size: 1.1rem;
+}
+
+.offer-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 1.5rem;
+}
+
+.offer-item {
+    background: linear-gradient(145deg, #ffffff, #f8fafc);
+    padding: 1.5rem;
+    border-radius: 8px;
+    border: 1px solid rgba(0, 0, 0, 0.05);
+    display: flex;
+    gap: 1.2rem;
+    transition: var(--transition);
+}
+
+.offer-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 25px -5px rgba(0, 0, 0, 0.08);
+    border-color: var(--secondary-color);
+}
+
+.offer-icon-wrapper {
+    background-color: rgba(212, 175, 55, 0.15); /* Soft gold */
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.offer-icon-wrapper i {
+    font-size: 1.4rem;
     color: var(--secondary-color);
-    font-weight: bold;
-    margin-right: 0.5rem;
+}
+
+.offer-title {
+    font-weight: 700;
+    color: var(--primary-color);
+    font-size: 1.1rem;
+    margin-bottom: 0.4rem;
+    font-family: var(--font-heading);
+}
+
+.offer-desc {
+    font-size: 0.88rem;
+    color: #475569;
+    line-height: 1.5;
+    font-family: var(--font-body);
 }
 
 /* Team */
