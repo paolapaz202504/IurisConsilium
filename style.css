@@ -241,15 +241,38 @@ h2 {
     padding: 1.5rem;
     border-radius: 6px;
     box-shadow: 0 4px 6px -1px rgba(0,0,0,0.05);
-    font-weight: 600;
-    color: var(--primary-color);
     border-left: 4px solid var(--secondary-color);
     transition: var(--transition);
+    display: flex;
+    gap: 1rem;
+    align-items: flex-start;
 }
 
 .service-item:hover {
     box-shadow: 0 10px 15px -3px rgba(0,0,0,0.1);
     transform: translateX(5px);
+}
+
+.service-icon {
+    font-size: 1.8rem;
+    color: var(--secondary-color);
+    margin-top: 0.2rem;
+}
+
+.service-title {
+    font-weight: 600;
+    color: var(--primary-color);
+    font-size: 1.1rem;
+    margin-bottom: 0.3rem;
+    font-family: var(--font-heading);
+}
+
+.service-desc {
+    font-size: 0.85rem;
+    color: #64748b;
+    line-height: 1.4;
+    font-family: 'Inter', sans-serif;
+    font-weight: 300;
 }
 
 .services-list {
