@@ -15,6 +15,9 @@
             <img src="src/images/logotipo.jpg" alt="Iuris Consilium Logo" class="logo">
             <span class="logo-text">Iuris Consilium</span>
         </div>
+        <div class="menu-toggle" id="mobile-menu">
+            <i class="fas fa-bars"></i>
+        </div>
         <nav>
             <ul>
                 <li><a href="#about"><i class="fas fa-circle-info"></i> Quiénes Somos</a></li>
@@ -380,7 +383,7 @@
             <div class="contact-info">
                 <h3>Contacto</h3>
                 <p><strong>Teléfonos:</strong> 2373-7686 / 2373-7687</p>
-                <p><strong>Dirección:</strong> Oficina 1108-1109, Nivel 11, Torre norte del Edificio géminis 10 ubicado en la 12 calle, 1-25 zona 10, Ciudad de Guatemala.</p>
+                <p><strong>Dirección:</strong> Oficina 1108-1109, Nivel 11, Torre norte del Edificio Géminis 10 ubicado en la 12 calle, 1-25 zona 10, Ciudad de Guatemala.</p>
             </div>
             <div class="social-links">
                 <a href="https://www.instagram.com/iurisconsilium?igsh=MW44YjYxYjkxbmN3cQ==" target="_blank" class="social-btn">Instagram</a>
@@ -392,6 +395,30 @@
         </div>
     </footer>
     <script>
+        // Mobile Menu Toggle
+        const mobileMenu = document.getElementById('mobile-menu');
+        const navMenu = document.querySelector('.navbar nav ul');
+        
+        mobileMenu.addEventListener('click', () => {
+            navMenu.classList.toggle('active');
+            const icon = mobileMenu.querySelector('i');
+            if (navMenu.classList.contains('active')) {
+                icon.classList.remove('fa-bars');
+                icon.classList.add('fa-xmark');
+            } else {
+                icon.classList.remove('fa-xmark');
+                icon.classList.add('fa-bars');
+            }
+        });
+
+        // Close menu when clicking a link
+        document.querySelectorAll('.navbar nav ul li a').forEach(link => {
+            link.addEventListener('click', () => {
+                navMenu.classList.remove('active');
+                mobileMenu.querySelector('i').classList.replace('fa-xmark', 'fa-bars');
+            });
+        });
+
         function openModal(modalId) {
             document.getElementById(modalId).style.display = "block";
             document.body.style.overflow = "hidden"; // Prevent scrolling behind modal
