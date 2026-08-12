@@ -1,10 +1,10 @@
 :root {
-    --primary-color: #1a2b4c;
+    --primary-color: #000000;
     --secondary-color: #d4af37; /* Elegant Gold */
-    --accent-color: #8b9dc3;
-    --bg-dark: #0f172a;
+    --accent-color: #4a4a4a;
+    --bg-dark: #121212;
     --bg-light: #f8fafc;
-    --text-main: #334155;
+    --text-main: #212121;
     --text-light: #f8fafc;
     --font-heading: 'Playfair Display', serif;
     --font-body: 'Inter', sans-serif;
@@ -365,11 +365,12 @@ h2 {
 }
 
 .team-member {
-    background-color: var(--bg-dark);
+    background-color: var(--bg-light);
+    color: var(--text-main);
     padding: 2rem;
     border-radius: 8px;
     text-align: left;
-    border: 1px solid rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(0, 0, 0, 0.1);
     transition: var(--transition);
 }
 
