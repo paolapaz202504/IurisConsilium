@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://iuris-consilium.net/sitemap.xml
