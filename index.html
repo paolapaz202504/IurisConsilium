@@ -326,13 +326,22 @@
                             <p class="formacion-card-desc">Cada curso se estructura conforme al programa de estudios de su universidad o a sus objetivos de actualización profesional.</p>
 
                             <div class="formacion-quick-options">
-                                <span class="formacion-quick-label">Seleccione su ruta de acceso:</span>
-                                <div class="formacion-opt-badge" onclick="openFormModal('modal-examen', 'preparar')">
-                                    <span><i class="fas fa-graduation-cap"></i> Preparar mi examen (Privada / Pública / Internacional)</span>
+                                <span class="formacion-quick-label">Preparación por Fases de Examen:</span>
+                                <div class="formacion-opt-badge" onclick="openFormModal('modal-examen', 'privada')">
+                                    <span><i class="fas fa-landmark"></i> <strong>Fase Privada:</strong> Civil, Mercantil y Notarial</span>
                                     <i class="fas fa-arrow-right"></i>
                                 </div>
+                                <div class="formacion-opt-badge" onclick="openFormModal('modal-examen', 'publica')">
+                                    <span><i class="fas fa-gavel"></i> <strong>Fase Pública:</strong> Penal, Laboral, Administrativo y Constitucional</span>
+                                    <i class="fas fa-arrow-right"></i>
+                                </div>
+                                <div class="formacion-opt-badge" onclick="openFormModal('modal-examen', 'internacional')">
+                                    <span><i class="fas fa-globe"></i> <strong>Fase Internacional:</strong> Derecho Internacional y DDHH</span>
+                                    <i class="fas fa-arrow-right"></i>
+                                </div>
+                                <span class="formacion-quick-label" style="margin-top: 0.4rem;">Actualización Jurídica Continua:</span>
                                 <div class="formacion-opt-badge" onclick="openFormModal('modal-examen', 'actualizar')">
-                                    <span><i class="fas fa-scale-balanced"></i> Actualizar mis conocimientos (Cursos especializados)</span>
+                                    <span><i class="fas fa-scale-balanced"></i> <strong>Actualización en Derecho:</strong> Cursos especializados</span>
                                     <i class="fas fa-arrow-right"></i>
                                 </div>
                             </div>
@@ -1026,11 +1035,22 @@
             
             if (modalId === 'modal-examen' && defaultOption) {
                 const selectTipo = document.getElementById('examen-tipo');
+                const selectFase = document.getElementById('ex-fase');
                 if (selectTipo) {
-                    if (defaultOption === 'preparar') {
+                    if (defaultOption === 'privada') {
                         selectTipo.value = 'Preparar mi Examen Técnico Profesional';
+                        if (selectFase) selectFase.value = 'Fase Privada (Civil, Mercantil, Notarial)';
+                    } else if (defaultOption === 'publica') {
+                        selectTipo.value = 'Preparar mi Examen Técnico Profesional';
+                        if (selectFase) selectFase.value = 'Fase Pública (Penal, Laboral, Administrativo, Constitucional)';
+                    } else if (defaultOption === 'internacional') {
+                        selectTipo.value = 'Preparar mi Examen Técnico Profesional';
+                        if (selectFase) selectFase.value = 'Fase Internacional';
                     } else if (defaultOption === 'actualizar') {
                         selectTipo.value = 'Actualizar mis conocimientos en Derecho';
+                        if (selectFase) selectFase.value = 'Curso de alta especialidad profesional';
+                    } else if (defaultOption === 'preparar') {
+                        selectTipo.value = 'Preparar mi Examen Técnico Profesional';
                     }
                 }
             }
@@ -1086,7 +1106,7 @@
             
             if (channel === 'whatsapp') {
                 const encodedMsg = encodeURIComponent(summaryText);
-                const waUrl = `https://api.whatsapp.com/send?phone=50223737686&text=${encodedMsg}`;
+                const waUrl = `https://api.whatsapp.com/send?phone=50230603785&text=${encodedMsg}`;
                 window.open(waUrl, '_blank');
             } else if (channel === 'email') {
                 const subject = encodeURIComponent(`Solicitud: ${serviceName} - Iuris Consilium`);
