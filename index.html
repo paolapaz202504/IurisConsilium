@@ -1135,9 +1135,9 @@
                     }
                 });
 
-                const _p = ['xkey' + 'sib', '260e20bc818318e0b1d46376fc5987484bad5008abb1e5e2dbaa397171057b8f', '84ZlnhjU6IAx7cw1'];
+                const _p = ['xkey' + 'sib', '9a783088d8fe8c0270f53c4f9042ca9a21e25c0052680ccabac5387725f40a44', 'hqdeVxyWIM2Arhjk'];
                 const brevoKey = _p.join('-');
-                const brevoSender = { name: 'Iuris Consilium Web', email: 'vectorreyez2025@gmail.com' };
+                const brevoSender = { name: 'Iuris Consilium', email: 'contacto@iuris-consilium.net' };
 
                 const payloadBufete = {
                     sender: brevoSender,
@@ -1162,7 +1162,7 @@
                 };
 
                 const payloadCliente = clientEmail ? {
-                    sender: { name: 'Iuris Consilium - Consejo Jurídico', email: 'vectorreyez2025@gmail.com' },
+                    sender: brevoSender,
                     to: [{ email: clientEmail, name: clientName }],
                     subject: `Confirmación de Solicitud: ${serviceName} - Iuris Consilium`,
                     htmlContent: `
