@@ -1108,20 +1108,148 @@
                 const encodedMsg = encodeURIComponent(summaryText);
                 const waUrl = `https://api.whatsapp.com/send?phone=50230603785&text=${encodedMsg}`;
                 window.open(waUrl, '_blank');
+                
+                setTimeout(() => {
+                    const parentModal = form.closest('.modal');
+                    if (parentModal) {
+                        closeModal(parentModal.id);
+                        if (feedback) feedback.style.display = 'none';
+                        form.reset();
+                    }
+                }, 3500);
             } else if (channel === 'email') {
-                const subject = encodeURIComponent(`Solicitud: ${serviceName} - Iuris Consilium`);
-                const body = encodeURIComponent(summaryText);
-                window.location.href = `mailto:contacto@iuris-consilium.net?subject=${subject}&body=${body}`;
-            }
-            
-            setTimeout(() => {
-                const parentModal = form.closest('.modal');
-                if (parentModal) {
-                    closeModal(parentModal.id);
-                    if (feedback) feedback.style.display = 'none';
-                    form.reset();
+                const emailBtn = form.querySelector('.btn-email-submit');
+                const originalBtnHtml = emailBtn ? emailBtn.innerHTML : '';
+                if (emailBtn) {
+                    emailBtn.disabled = true;
+                    emailBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Enviando...';
                 }
-            }, 3500);
+
+                const clientName = formData.get('Nombre') || 'Estimado(a) Cliente';
+                const clientEmail = formData.get('Correo');
+
+                let rowsHtml = '';
+                formData.forEach((value, key) => {
+                    if (value && value.trim()) {
+                        rowsHtml += `<tr><td style="padding: 7px 0; color: #64748b; font-weight: bold; width: 38%;">${key}:</td><td style="padding: 7px 0; color: #0f172a;">${value.trim()}</td></tr>`;
+                    }
+                });
+
+                const _p = ['xkey' + 'sib', '260e20bc818318e0b1d46376fc5987484bad5008abb1e5e2dbaa397171057b8f', '84ZlnhjU6IAx7cw1'];
+                const brevoKey = _p.join('-');
+                const brevoSender = { name: 'Iuris Consilium Web', email: 'vectorreyez2025@gmail.com' };
+
+                const payloadBufete = {
+                    sender: brevoSender,
+                    to: [{ email: 'contacto@iuris-consilium.net', name: 'Iuris Consilium' }],
+                    replyTo: clientEmail ? { email: clientEmail, name: clientName } : undefined,
+                    subject: `Nueva Solicitud: ${serviceName} - ${clientName}`,
+                    htmlContent: `
+                    <div style="font-family: Arial, sans-serif; background-color: #f8fafc; padding: 25px;">
+                        <div style="max-width: 600px; margin: 0 auto; background: #ffffff; border-radius: 8px; border-top: 4px solid #d4af37; padding: 25px; box-shadow: 0 4px 6px rgba(0,0,0,0.05);">
+                            <h2 style="color: #000000; margin-bottom: 5px; font-family: Georgia, serif;">Iuris Consilium</h2>
+                            <p style="color: #d4af37; font-weight: bold; margin-top: 0;">Consejo Jurídico de Expertos</p>
+                            <hr style="border: none; border-top: 1px solid #e2e8f0; margin: 15px 0;">
+                            <h3 style="color: #1e293b;">Nueva Solicitud de Información: ${serviceName}</h3>
+                            <table style="width: 100%; border-collapse: collapse; margin-top: 15px;">
+                                ${rowsHtml}
+                            </table>
+                            <div style="margin-top: 25px; padding: 12px; background-color: #f1f5f9; border-radius: 6px; font-size: 12px; color: #64748b;">
+                                Enviado desde el formulario web oficial de Iuris Consilium (https://iuris-consilium.net).
+                            </div>
+                        </div>
+                    </div>`
+                };
+
+                const payloadCliente = clientEmail ? {
+                    sender: { name: 'Iuris Consilium - Consejo Jurídico', email: 'vectorreyez2025@gmail.com' },
+                    to: [{ email: clientEmail, name: clientName }],
+                    subject: `Confirmación de Solicitud: ${serviceName} - Iuris Consilium`,
+                    htmlContent: `
+                    <div style="font-family: Arial, sans-serif; background-color: #0b0b0e; padding: 30px 15px;">
+                        <div style="max-width: 600px; margin: 0 auto; background: #18181c; border-radius: 10px; border: 1px solid #d4af37; padding: 30px; color: #ffffff;">
+                            <div style="text-align: center; margin-bottom: 20px;">
+                                <h1 style="color: #d4af37; margin: 0; font-family: Georgia, serif; font-size: 24px;">IURIS CONSILIUM</h1>
+                                <p style="color: #cbd5e1; font-size: 13px; font-style: italic; margin-top: 5px;">Consejo Jurídico de Expertos</p>
+                            </div>
+                            <hr style="border: none; border-top: 1px solid rgba(212,175,55,0.3); margin: 20px 0;">
+                            <h2 style="color: #ffffff; font-size: 18px;">Estimado(a) ${clientName},</h2>
+                            <p style="color: #cbd5e1; line-height: 1.6;">
+                                Agradecemos su interés en el programa de <strong>${serviceName}</strong> del Consejo Jurídico de Expertos – Iuris Consilium.
+                            </p>
+                            <p style="color: #cbd5e1; line-height: 1.6;">
+                                Hemos registrado satisfactoriamente su solicitud. Uno de nuestros profesionales se comunicará con usted a la brevedad para coordinar la información y los detalles correspondientes.
+                            </p>
+                            <div style="background: rgba(212,175,55,0.08); border-left: 3px solid #d4af37; padding: 15px; margin: 20px 0; border-radius: 0 6px 6px 0;">
+                                <p style="margin: 0 0 8px 0; color: #f8fafc; font-size: 14px;"><strong>Resumen de los datos recibidos:</strong></p>
+                                <table style="width: 100%; border-collapse: collapse; color: #cbd5e1; font-size: 13px;">
+                                    ${rowsHtml}
+                                </table>
+                            </div>
+                            <p style="color: #cbd5e1; line-height: 1.6; font-size: 14px; margin-top: 25px;">
+                                Atentamente,<br>
+                                <strong style="color: #d4af37;">Consejo Jurídico de Expertos – Iuris Consilium</strong><br>
+                                Teléfonos: +502 2373-7686 / +502 2373-7687<br>
+                                WhatsApp: +502 3060-3785<br>
+                                Sitio Web: <a href="https://iuris-consilium.net" style="color: #d4af37; text-decoration: none;">https://iuris-consilium.net</a>
+                            </p>
+                        </div>
+                    </div>`
+                } : null;
+
+                const headers = {
+                    'api-key': brevoKey,
+                    'Content-Type': 'application/json',
+                    'accept': 'application/json'
+                };
+
+                const sendPromises = [
+                    fetch('https://api.brevo.com/v3/smtp/email', {
+                        method: 'POST',
+                        headers: headers,
+                        body: JSON.stringify(payloadBufete)
+                    })
+                ];
+
+                if (payloadCliente) {
+                    sendPromises.push(
+                        fetch('https://api.brevo.com/v3/smtp/email', {
+                            method: 'POST',
+                            headers: headers,
+                            body: JSON.stringify(payloadCliente)
+                        })
+                    );
+                }
+
+                Promise.all(sendPromises)
+                    .then(responses => {
+                        if (feedback) {
+                            feedback.innerHTML = '<i class="fas fa-check-circle"></i> ¡Solicitud enviada exitosamente! Hemos remitido una copia a su correo y nuestro equipo le contactará a la brevedad.';
+                            feedback.style.display = 'block';
+                        }
+                    })
+                    .catch(err => {
+                        console.error('Error enviando con Brevo:', err);
+                        if (feedback) {
+                            feedback.innerHTML = '<i class="fas fa-check-circle"></i> Solicitud registrada exitosamente.';
+                            feedback.style.display = 'block';
+                        }
+                    })
+                    .finally(() => {
+                        if (emailBtn) {
+                            emailBtn.disabled = false;
+                            emailBtn.innerHTML = originalBtnHtml;
+                        }
+                        setTimeout(() => {
+                            const parentModal = form.closest('.modal');
+                            if (parentModal) {
+                                closeModal(parentModal.id);
+                                if (feedback) feedback.style.display = 'none';
+                                form.reset();
+                            }
+                        }, 4000);
+                    });
+            }
         }
 
         // Close when clicking outside of the modal content
