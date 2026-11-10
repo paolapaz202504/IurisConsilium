@@ -1128,10 +1128,13 @@
                 const clientName = formData.get('Nombre') || 'Estimado(a) Cliente';
                 const clientEmail = formData.get('Correo');
 
-                let rowsHtml = '';
+                let rowsHtmlBufete = '';
+                let rowsHtmlCliente = '';
                 formData.forEach((value, key) => {
                     if (value && value.trim()) {
-                        rowsHtml += `<tr><td style="padding: 7px 0; color: #64748b; font-weight: bold; width: 38%;">${key}:</td><td style="padding: 7px 0; color: #0f172a;">${value.trim()}</td></tr>`;
+                        const val = value.trim();
+                        rowsHtmlBufete += `<tr><td style="padding: 8px 6px; color: #475569; font-weight: bold; width: 38%; border-bottom: 1px solid #e2e8f0;">${key}:</td><td style="padding: 8px 6px; color: #0f172a; border-bottom: 1px solid #e2e8f0;">${val}</td></tr>`;
+                        rowsHtmlCliente += `<tr><td style="padding: 9px 8px; color: #e2e8f0; font-weight: 600; width: 38%; border-bottom: 1px solid rgba(255,255,255,0.08); font-size: 13px;">${key}:</td><td style="padding: 9px 8px; color: #ffffff; font-weight: 600; border-bottom: 1px solid rgba(255,255,255,0.08); font-size: 13px;">${val}</td></tr>`;
                     }
                 });
 
@@ -1152,7 +1155,7 @@
                             <hr style="border: none; border-top: 1px solid #e2e8f0; margin: 15px 0;">
                             <h3 style="color: #1e293b;">Nueva Solicitud de Información: ${serviceName}</h3>
                             <table style="width: 100%; border-collapse: collapse; margin-top: 15px;">
-                                ${rowsHtml}
+                                ${rowsHtmlBufete}
                             </table>
                             <div style="margin-top: 25px; padding: 12px; background-color: #f1f5f9; border-radius: 6px; font-size: 12px; color: #64748b;">
                                 Enviado desde el formulario web oficial de Iuris Consilium (https://iuris-consilium.net).
@@ -1180,16 +1183,16 @@
                             <p style="color: #cbd5e1; line-height: 1.6;">
                                 Hemos registrado satisfactoriamente su solicitud. Uno de nuestros profesionales se comunicará con usted a la brevedad para coordinar la información y los detalles correspondientes.
                             </p>
-                            <div style="background: rgba(212,175,55,0.08); border-left: 3px solid #d4af37; padding: 15px; margin: 20px 0; border-radius: 0 6px 6px 0;">
-                                <p style="margin: 0 0 8px 0; color: #f8fafc; font-size: 14px;"><strong>Resumen de los datos recibidos:</strong></p>
-                                <table style="width: 100%; border-collapse: collapse; color: #cbd5e1; font-size: 13px;">
-                                    ${rowsHtml}
+                            <div style="background: #222228; border: 1px solid rgba(212, 175, 55, 0.35); border-left: 4px solid #d4af37; padding: 18px; margin: 22px 0; border-radius: 6px;">
+                                <p style="margin: 0 0 10px 0; color: #d4af37; font-size: 13px; font-weight: bold; text-transform: uppercase; letter-spacing: 0.5px;">Resumen de los datos recibidos:</p>
+                                <table style="width: 100%; border-collapse: collapse; font-family: Arial, sans-serif;">
+                                    ${rowsHtmlCliente}
                                 </table>
                             </div>
                             <p style="color: #cbd5e1; line-height: 1.6; font-size: 14px; margin-top: 25px;">
                                 Atentamente,<br>
                                 <strong style="color: #d4af37;">Consejo Jurídico de Expertos – Iuris Consilium</strong><br>
-                                Teléfonos: +502 2373-7686 / +502 2373-7687<br>
+                                Teléfonos: +502 2373-7686 / 2373-7687<br>
                                 WhatsApp: +502 3060-3785<br>
                                 Sitio Web: <a href="https://iuris-consilium.net" style="color: #d4af37; text-decoration: none;">https://iuris-consilium.net</a>
                             </p>
